@@ -14,4 +14,4 @@ Brute force password menggunakan GPU (Numba CUDA)
 - Google Colab
 
 ## Cara Run
-Buka folder notebooks di Google Colab
+Buka di Google Colab
