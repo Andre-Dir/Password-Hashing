@@ -1,17 +1,26 @@
-# Parallel Password Hashing (GPU)
+# Parallel Password Hashing (MD5 Only)
 
-## Deskripsi
-Brute force password menggunakan GPU (Numba CUDA)
+## Features
+- MD5 Brute Force
+- CPU Multithreading
+- GPU CUDA Parallelism
+- Benchmark CPU vs GPU
+- Unit Testing
 
-## Fitur
-- CPU baseline
-- GPU parallel hashing
-- Benchmark performa
+## Install
 
-## Tools
-- Python
-- Numba
-- Google Colab
+```bash
+pip install -r requirements.txt
+```
 
-## Cara Run
-Buka di Google Colab
+## Run
+
+```bash
+python main.py
+```
+
+## Run Testing
+
+```bash
+pytest
+```
