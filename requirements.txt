@@ -1,3 +1,5 @@
-numba
 numpy
+numba
 pytest
+pandas
+matplotlib

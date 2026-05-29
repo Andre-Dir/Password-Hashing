@@ -1,26 +1,20 @@
-# Parallel Password Hashing (MD5 Only)
+# Benchmark
 
-## Features
-- MD5 Brute Force
-- CPU Multithreading
-- GPU CUDA Parallelism
-- Benchmark CPU vs GPU
-- Unit Testing
-
-## Install
+Run benchmark:
 
 ```bash
-pip install -r requirements.txt
+python benchmark.py
 ```
 
-## Run
+Generate analysis:
 
 ```bash
-python main.py
+python analysis.py
 ```
 
-## Run Testing
+Output:
 
-```bash
-pytest
-```
+- benchmark.csv
+- speedup.png
+- efficiency.png
+- execution_time.png
