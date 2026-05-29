@@ -1,60 +1,220 @@
+import os
 import csv
 import statistics
+import pandas as pd
+import matplotlib.pyplot as plt
 
 from cpu import brute_force_cpu
+
+# =====================================
+# CONFIG
+# =====================================
 
 TARGET_HASH = "900150983cd24fb0d6963f7d28e17f72"
 
 THREADS = [1, 2, 4, 8]
+
 RUNS = 5
 
+os.makedirs("results", exist_ok=True)
 
-def benchmark_cpu():
+# =====================================
+# BENCHMARK
+# =====================================
 
-    results = []
+raw_data = []
 
-    for thread_count in THREADS:
+for p in THREADS:
 
-        times = []
+    print(f"\n=== THREAD {p} ===")
 
-        print(f"\n=== THREAD {thread_count} ===")
+    times = []
 
-        for run in range(RUNS):
+    for run in range(RUNS):
 
-            _, elapsed = brute_force_cpu(
-                TARGET_HASH,
-                max_len=4,
-                n_threads=thread_count
-            )
-
-            times.append(elapsed)
-
-        median_time = statistics.median(times)
-
-        results.append(
-            [thread_count,
-             median_time,
-             min(times),
-             max(times)]
+        _, elapsed = brute_force_cpu(
+            TARGET_HASH,
+            max_len=4,
+            n_threads=p
         )
 
-    with open("results/benchmark.csv",
-              "w",
-              newline="") as file:
+        times.append(elapsed)
 
-        writer = csv.writer(file)
-
-        writer.writerow([
-            "threads",
-            "median",
-            "min",
-            "max"
+        raw_data.append([
+            run + 1,
+            p,
+            elapsed
         ])
 
-        writer.writerows(results)
+    print(
+        f"Median = {statistics.median(times):.4f}s"
+    )
 
-    print("\nBenchmark saved.")
+# =====================================
+# SAVE RAW CSV
+# =====================================
 
+with open(
+    "results/raw_benchmark.csv",
+    "w",
+    newline=""
+) as f:
 
-if __name__ == "__main__":
-    benchmark_cpu()
+    writer = csv.writer(f)
+
+    writer.writerow([
+        "run",
+        "threads",
+        "time"
+    ])
+
+    writer.writerows(raw_data)
+
+print("raw_benchmark.csv saved")
+
+# =====================================
+# SUMMARY TABLE
+# =====================================
+
+df = pd.DataFrame(
+    raw_data,
+    columns=[
+        "run",
+        "threads",
+        "time"
+    ]
+)
+
+summary = (
+    df.groupby("threads")
+      .agg(
+          median=("time", "median"),
+          minimum=("time", "min"),
+          maximum=("time", "max"),
+          std=("time", "std")
+      )
+      .reset_index()
+)
+
+t_seq = summary.loc[
+    summary["threads"] == 1,
+    "median"
+].values[0]
+
+summary["speedup"] = (
+    t_seq /
+    summary["median"]
+)
+
+summary["efficiency"] = (
+    summary["speedup"] /
+    summary["threads"]
+)
+
+summary.to_csv(
+    "results/benchmark_summary.csv",
+    index=False
+)
+
+print(summary)
+
+# =====================================
+# GRAFIK 1
+# SPEEDUP
+# =====================================
+
+plt.figure(figsize=(7,5))
+
+plt.plot(
+    summary["threads"],
+    summary["speedup"],
+    marker="o",
+    linewidth=2,
+    label="Empirical"
+)
+
+plt.plot(
+    summary["threads"],
+    summary["threads"],
+    "--",
+    label="Ideal"
+)
+
+plt.xlabel("Threads")
+plt.ylabel("Speedup")
+plt.title("Speedup vs Threads")
+
+plt.grid(True)
+
+plt.legend()
+
+plt.savefig(
+    "results/speedup.png",
+    dpi=150
+)
+
+plt.show()
+
+# =====================================
+# GRAFIK 2
+# EFFICIENCY
+# =====================================
+
+plt.figure(figsize=(7,5))
+
+plt.plot(
+    summary["threads"],
+    summary["efficiency"],
+    marker="o",
+    linewidth=2
+)
+
+plt.axhline(
+    y=1.0,
+    linestyle="--"
+)
+
+plt.xlabel("Threads")
+plt.ylabel("Efficiency")
+
+plt.title("Efficiency vs Threads")
+
+plt.grid(True)
+
+plt.savefig(
+    "results/efficiency.png",
+    dpi=150
+)
+
+plt.show()
+
+# =====================================
+# GRAFIK 3
+# EXECUTION TIME
+# =====================================
+
+plt.figure(figsize=(7,5))
+
+plt.plot(
+    summary["threads"],
+    summary["median"],
+    marker="o",
+    linewidth=2
+)
+
+plt.xlabel("Threads")
+
+plt.ylabel("Execution Time (s)")
+
+plt.title("Execution Time vs Threads")
+
+plt.grid(True)
+
+plt.savefig(
+    "results/execution_time.png",
+    dpi=150
+)
+
+plt.show()
+
+print("\nAll graphs generated.")
