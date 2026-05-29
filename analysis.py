@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("results/benchmark_summary")
+df = pd.read_csv("results/benchmark_summary.csv")
 
 t_seq = df.loc[
     df["threads"] == 1,
