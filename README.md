@@ -332,7 +332,7 @@ cpu_gpu_comparison.png
 
 # Demo Video
 
-[https://drive.google.com/file/d/1oiqD2ZtSrwgzKS3XoTwc123My9G-SL6v/view?usp=drive_link](https://drive.google.com/drive/folders/1IgPF046yFb3Zt0pYGBkJt1IKU5bQKhp1?usp=drive_link](https://drive.google.com/drive/folders/1IgPF046yFb3Zt0pYGBkJt1IKU5bQKhp1?usp=sharing)
+(https://drive.google.com/drive/folders/1IgPF046yFb3Zt0pYGBkJt1IKU5bQKhp1?usp=drive_link]
 
 ---
 
