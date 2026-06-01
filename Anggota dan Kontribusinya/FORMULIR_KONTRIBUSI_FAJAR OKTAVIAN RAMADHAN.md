@@ -35,13 +35,13 @@ Ketepatan waktu deliverable: 9
 
 ### 4. Penilaian Rekan
 
-Anggota 2:
+Kelvin Andre Hardian:
 Kontribusi tinggi
 
-Anggota 3:
+Muhammad Shaufi Wafa B.S:
 Kontribusi sedang
 
-Anggota 4:
+Giovanni Maranatha:
 Kontribusi sedang
 
 ### 5. Refleksi
@@ -51,3 +51,6 @@ Implementasi multithreading dan analisis performa menggunakan benchmark.
 
 Hal yang ingin saya tingkatkan:
 Optimasi performa dan implementasi CUDA yang lebih kompleks.
+
+Pesan dan kesan:
+Be yourself, jangan pernah dengarin kata orang lain, tetap semangat, lanjutkan mimpimu!!!!
