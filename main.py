@@ -4,13 +4,13 @@ from gpu import brute_force_gpu
 
 if __name__ == "__main__":
 
-    target_hash = "b64eab8ce39e013604e243089c687e4f"
+    target_hash = "ab56b4d92b40713acc5af89985d4b786"
 
     print("=== CPU MULTITHREAD ===")
 
     cpu_pw, cpu_time = brute_force_cpu(
         target_hash,
-        max_len=4,
+        max_len=5,
         n_threads=8
     )
 
