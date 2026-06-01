@@ -21,12 +21,12 @@ Implementasi brute-force password hashing menggunakan **CPU Multithreading** dan
 
 ## Team
 
-| Nama      | Role                               |
-| --------- | ---------------------------------- |
-| Anggota 1 | Core Developer, CPU Implementation |
-| Anggota 2 | Core Developer, GPU Implementation |
-| Anggota 3 | Documentation & Report             |
-| Anggota 4 | Presentation & Documentation       |
+| Nama                     | Role                               |
+| ------------------------ | ---------------------------------- |
+| Fajar Oktavian Ramadhan  | Core Developer, CPU Implementation |
+| Kelvin Andre Hardian     | Core Developer, GPU Implementation |
+| Muhammad Shaufi Wafa B.S | Documentation & Report             |
+| Giovanni Maranatha       | Presentation & Documentation       |
 
 ### Contribution Notes
 
