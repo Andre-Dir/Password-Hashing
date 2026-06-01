@@ -28,6 +28,7 @@ Implementasi brute-force password hashing menggunakan **CPU Multithreading** dan
 | Muhammad Shaufi Wafa B.S | Documentation & Report             |
 | Giovanni Maranatha       | Presentation & Documentation       |
 
+
 ### Contribution Notes
 
 Sebagian besar implementasi teknis proyek (pengembangan kode, benchmarking, testing, dan integrasi sistem) dikerjakan oleh dua anggota utama tim. Anggota lainnya berkontribusi pada dokumentasi, penyusunan laporan, dan persiapan presentasi akhir.
@@ -223,7 +224,7 @@ Contoh:
 TARGET_HASH = "5f4dcc3b5aa765d61d8327deb882cf99"
 ```
 
-Sistem saat ini hanya mendukung hash MD5.
+⚠️ Sistem saat ini hanya mendukung hash MD5.
 
 ---
 
