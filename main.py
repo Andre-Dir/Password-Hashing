@@ -11,7 +11,6 @@ if __name__ == "__main__":
     cpu_pw, cpu_time = brute_force_cpu(
         target_hash,
         max_len=6,
-        n_threads=8
     )
 
     print("\n=== GPU CUDA ===")
