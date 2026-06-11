@@ -9,7 +9,7 @@ from hashing import md5_hash
 def brute_force_gpu(
     target_hash: str,
     max_len: int = 4,
-    batch_cap: int = 500_000
+    batch_cap: int = 12_000_000
 ):
 
     start = time.time()
