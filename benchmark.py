@@ -10,7 +10,7 @@ from cpu import brute_force_cpu
 # CONFIG
 # =====================================
 
-TARGET_HASH = "e1ef3dd13e63886ac067a47c5b99f494"
+TARGET_HASH = "24bc50d85ad8fa9cda686145cf1f8aca"
 
 THREADS = [1, 2, 4, 8]
 
