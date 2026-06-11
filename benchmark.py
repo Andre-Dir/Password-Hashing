@@ -34,7 +34,7 @@ for p in THREADS:
 
         _, elapsed = brute_force_cpu(
             TARGET_HASH,
-            max_len=4,
+            max_len=6,
             n_threads=p
         )
 
