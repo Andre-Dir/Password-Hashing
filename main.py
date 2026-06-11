@@ -4,7 +4,7 @@ from gpu import brute_force_gpu
 
 if __name__ == "__main__":
 
-    target_hash = "e1ef3dd13e63886ac067a47c5b99f494"
+    target_hash = "24bc50d85ad8fa9cda686145cf1f8aca"
 
     print("=== CPU MULTITHREAD ===")
 
