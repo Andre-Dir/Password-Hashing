@@ -10,14 +10,14 @@ if __name__ == "__main__":
 
     cpu_pw, cpu_time = brute_force_cpu(
         target_hash,
-        max_len=6,
+        max_len=5,
     )
 
     print("\n=== GPU CUDA ===")
 
     gpu_pw, gpu_time = brute_force_gpu(
         target_hash,
-        max_len=6
+        max_len=5
     )
 
     print("\n=== BENCHMARK ===")
