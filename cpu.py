@@ -23,7 +23,7 @@ def generate_combinations(charset, length):
 def brute_force_cpu(
     target_hash: str,
     max_len: int = 5,
-    n_threads: int = 1,
+    n_threads: int = 8,
     charset: str = None
 ):
 
